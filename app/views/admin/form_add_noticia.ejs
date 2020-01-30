@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Formulário de cadastro de Notícia</title>
+	</head>
+	<body>
+
+		<h1>Adicionar notícia</h1>
+		<br />
+
+		
+		<% if (arrErrors !== undefined && arrErrors.length > 0) { %> 
+			<h3>Erro no formulário: </h3>
+			
+			<% for(i in arrErrors) { %>
+				<b><%= arrErrors[i].param %></b>: <%= arrErrors[i].msg %> <br>
+			<% } %> 
+
+			<br />
+			<br />
+		<% } %> 
+
+		<form action="/noticias/salvar" method="post">
+			<label>Título</label>
+			<input type="text" id="titulo" name="titulo" value="<%= noticia.titulo %>" placeholder="Título da Notícia" />
+			<br />
+
+			<label>Resumo</label>
+			<input type="text" id="resumo" name="resumo" value="<%= noticia.resumo %>" placeholder="Resumo da Notícia" />
+			<br />
+			
+			<label>Autor da Notícia</label>
+			<input type="text" id="autor" name="autor" value="<%= noticia.autor %>" placeholder="Autor da Notícia" />
+			<br />
+
+			<label>Data da Notícia</label>
+			<input type="date" id="data_noticia" name="data_noticia" value="<%= noticia.data_noticia %>" placeholder="Data da Notícia" />
+			<br />
+
+			<label>Notícia</label>
+			<textarea id="noticia" name="noticia" rows="5" cols="30"><%= noticia.noticia %></textarea>
+			<br />
+			<input type="submit" value="Enviar" />
+		</form>
+
+	</body>
+</html>
